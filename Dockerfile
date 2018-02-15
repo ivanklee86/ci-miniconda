@@ -4,7 +4,7 @@ LABEL MAINTAINER="Ivan <aoach.public@gmail.com>"
 
 # Install 64-bit packages (mainly to support Ruby & Fastlane)
 RUN apt-get update \
- && apt-get install -y curl vim python-dev sudo bzip2 \
+ && apt-get install -y curl python-dev sudo bzip2 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists /var/cache/apt
  
@@ -24,10 +24,9 @@ USER jenkins
 WORKDIR "${JENKINS_HOME}"
 
 # Install miniconda to /miniconda
-RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
-RUN chmod +x Miniconda-latest-Linux-x86_64.sh
-RUN bash "${JENKINS_HOME}/Miniconda-latest-Linux-x86_64.sh" -p "${JENKINS_HOME}/miniconda" -b
-RUN rm Miniconda-latest-Linux-x86_64.sh
+RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh \
+ && bash "${JENKINS_HOME}/Miniconda-latest-Linux-x86_64.sh" -p "${JENKINS_HOME}/miniconda" -b \
+ && rm Miniconda-latest-Linux-x86_64.sh
 
 #Set environment
 ENV PATH="${JENKINS_HOME}/miniconda/bin:${JENKINS_HOME}/gradle/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
