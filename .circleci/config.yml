@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: docker:17.05.0-ce-git
+    environment:
+      TEST_RESULTS: /tmp/test-results
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build and push Docker image
+          command: |
+            docker build -t cluelesshamster86/jp-python:latest .
+            docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+            docker push cluelesshamster86/jp-python:latest
