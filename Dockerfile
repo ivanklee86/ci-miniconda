@@ -34,6 +34,6 @@ RUN echo "export PATH=${JENKINS_HOME}/miniconda/bin:${JENKINS_HOME}/gradle/bin:$
 
 # Update conda and install bundle
 RUN conda update -y conda
-RUN conda create --yes -n py3 python=3
+RUN conda create --yes -n py3 python=3.6.2
 
-CMD ["python"]
+CMD ["/bin/bash", "-c", "source activate py3 && python"]
