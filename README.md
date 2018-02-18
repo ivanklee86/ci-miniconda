@@ -1,2 +1,13 @@
-# jp-python
-Docker image with Python (via Miniconda) for use with Jenkins pipelines.
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+# ci-python-package-dev
+Docker image for building Python packages in  CI!
+
+Featuring:
+* [Miniconda](https://conda.io/miniconda.html)
+* Twine pre-installed
+
+Supported CI:
+* Jenkins
+
+## To Do!
+* Instructions to integrated with supported CI's.
