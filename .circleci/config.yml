@@ -11,6 +11,6 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
-            docker build -t cluelesshamster86/ci-python-package-dev:latest .
+            docker build -t cluelesshamster86/ci-miniconda:latest .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
-            docker push cluelesshamster86/ci-python-package-dev:latest
+            docker push cluelesshamster86/ci-miniconda:latest
