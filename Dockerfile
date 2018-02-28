@@ -2,7 +2,7 @@ FROM ubuntu:latest
 LABEL MAINTAINER="Ivan <aoach.public@gmail.com>"
 
 # From https://repo.continuum.io/miniconda/
-ARG miniconda_md5="7fe70b214bee1143e3e3f0467b71453c"
+ARG miniconda_md5="bec6203dbb2f53011e974e9bf4d46e93"
 
 # Set up container information
 WORKDIR /root
