@@ -27,7 +27,7 @@ ENV PATH /opt/conda/bin:$PATH
 
 # Update conda and install latest maintainance release.
 RUN conda update -y conda
-RUN conda install -y python=3.6.3
+RUN conda install -y python=3.6.4
 
 # Install twine so you can upload package to pypi!
 RUN pip install twine
