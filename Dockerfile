@@ -6,6 +6,8 @@ ARG miniconda_md5="bec6203dbb2f53011e974e9bf4d46e93"
 
 # Set up container information
 WORKDIR /root
+ENV LC_ALL C.UTF-8
+ENV LANG =C.UTF-8
 
 # Install support packages.
 RUN apt-get update \
@@ -30,6 +32,8 @@ RUN conda update -y conda
 RUN conda install -y python=3.6.4
 
 # Install twine so you can upload package to pypi!
-RUN pip install twine
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt \
+ && rm -rf requirements.txt
 
 CMD ["/bin/bash"]
